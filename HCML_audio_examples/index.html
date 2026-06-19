@@ -83,11 +83,6 @@
 
 <div class="page">
 
-  <header>
-    <h1>Technique comparisons</h1>
-    <p>Below are the 4 different explanation techniques, applied to the same audio sample of a dog. The explanations are converted back to audio, tap play on any fragment below to listen.</p>
-  </header>
-
   <!--
     ============================================
     HOW TO ADD YOUR OWN AUDIO FRAGMENTS
@@ -100,6 +95,11 @@
     4. Delete this comment block and the example fragments once you've
        added your real ones (or just edit them in place).
   -->
+
+  <header>
+    <h1>Technique comparisons</h1>
+    <p>Below are the 4 different explanation techniques, applied to the same audio sample of a dog, chainsaw, and crying baby. The explanations are converted back to audio, tap play on any fragment below to listen.</p>
+  </header>
 
   <div class="fragment", style="background:#53BE65">
     <h2>Dog: Original</h2>
@@ -145,6 +145,102 @@
       Your browser does not support the audio element.
     </audio>
   </div>
+
+  <header></header> <!--for the horizontal dividing line-->
+
+    <div class="fragment", style="background:#53BE65">
+    <h2>Chainsaw: Original</h2>
+    <p class="caption">the original audio clip for the chainsaw audio sample</p>
+    <audio controls preload="none">
+      <source src="audio/chainsaw_gradcam_clip_45s_5s.wav" type="audio/wav">
+      Your browser does not support the audio element.
+    </audio>
+  </div>
+
+  <div class="fragment">
+    <h2>Chainsaw: B-cos</h2>
+    <p class="caption">Chainsaw audio explained by B-cos and transformed back to audio</p>
+    <audio controls preload="none">
+      <source src="audio/chainsaw_bcos_clip_45s_5s.wav" type="audio/wav">
+      Your browser does not support the audio element.
+    </audio>
+  </div>
+
+    <div class="fragment">
+    <h2>Chainsaw: B-cos Smoothed</h2>
+    <p class="caption">Chainsaw audio explained by B-cos, smoothed, and then transformed back to audio</p>
+    <audio controls preload="none">
+      <source src="audio/chainsaw_smooth_clip_45s_5s.wav" type="audio/wav">
+      Your browser does not support the audio element.
+    </audio>
+  </div>
+
+  <div class="fragment">
+    <h2>Chainsaw: GradCam</h2>
+    <p class="caption">Chainsaw audio explained by GradCam and transformed back to audio</p>
+    <audio controls preload="none">
+      <source src="audio/chainsaw_gradcam_clip_45s_5s.wav" type="audio/wav">
+      Your browser does not support the audio element.
+    </audio>
+  </div>
+
+  <div class="fragment">
+    <h2>Chainsaw: LIME</h2>
+    <p class="caption">Chainsaw audio explained by LIME and transformed back to audio</p>
+    <audio controls preload="none">
+      <source src="audio/chainsaw_lime_clip_45s_5s.wav" type="audio/wav">
+      Your browser does not support the audio element.
+    </audio>
+  </div>
+
+
+  <header></header> <!--for the horizontal dividing line-->
+
+    <div class="fragment", style="background:#53BE65">
+    <h2>Crying Baby: Original</h2>
+    <p class="caption">the original audio clip for the crying baby audio sample</p>
+    <audio controls preload="none">
+      <source src="audio/crying_baby_gradcam_clip_25s_5s.wav" type="audio/wav">
+      Your browser does not support the audio element.
+    </audio>
+  </div>
+
+  <div class="fragment">
+    <h2>Crying Baby: B-cos</h2>
+    <p class="caption">Crying Baby audio explained by B-cos and transformed back to audio</p>
+    <audio controls preload="none">
+      <source src="audio/crying_baby_bcos_clip_25s_5s.wav" type="audio/wav">
+      Your browser does not support the audio element.
+    </audio>
+  </div>
+
+    <div class="fragment">
+    <h2>Crying Baby: B-cos Smoothed</h2>
+    <p class="caption">Crying Baby audio explained by B-cos, smoothed, and then transformed back to audio</p>
+    <audio controls preload="none">
+      <source src="audio/crying_baby_smooth_clip_25s_5s.wav" type="audio/wav">
+      Your browser does not support the audio element.
+    </audio>
+  </div>
+
+  <div class="fragment">
+    <h2>Crying Baby: GradCam</h2>
+    <p class="caption">Crying Baby audio explained by GradCam and transformed back to audio</p>
+    <audio controls preload="none">
+      <source src="audio/crying_baby_gradcam_clip_25s_5s.wav" type="audio/wav">
+      Your browser does not support the audio element.
+    </audio>
+  </div>
+
+  <div class="fragment">
+    <h2>Crying Baby: LIME</h2>
+    <p class="caption">Crying Baby audio explained by LIME and transformed back to audio</p>
+    <audio controls preload="none">
+      <source src="audio/crying_baby_lime_clip_25s_5s.wav" type="audio/wav">
+      Your browser does not support the audio element.
+    </audio>
+  </div>
+
 
   <footer>
     This site was created as part of a poster presentation for the course Human Centred Machine Learning at Utrecht University.
