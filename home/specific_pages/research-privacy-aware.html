@@ -1,0 +1,150 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Joris Heemskerk</title>
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Fraunces:opsz,wght@9..144,400;9..144,500;9..144,600&family=Inter:wght@400;500;600&family=IBM+Plex+Mono:wght@400;500&display=swap" rel="stylesheet">
+<link rel="stylesheet" href="../css/style.css">
+ 
+</head>
+<body>
+
+<div class="topbar">
+  <!-- <div class="avatar">JH</div>
+  Swap the line above for: -->
+  <div class="avatar"><img src="../assets/avatar.png" alt="Joris Heemskerk" style="width:100%;height:100%;object-fit:cover;"></div>
+  <div class="topbar-text">
+    <h1>Joris Heemskerk</h1>
+    <div class="topbar-roles">AI Master's Student<span class="dot">·</span>AI Engineer<span class="dot">·</span>AI Researcher<span class="dot">·</span>Occasional Speaker</div>
+  </div>
+</div>
+
+<div class="slideshow" aria-label="Photos from the BNAIC talk">
+  <div class="slideshow-track">
+    <div class="slide active">
+      <img class="slide-bg" src="../assets/bnaic_1.jfif" alt="">
+      <img class="slide-fg" src="../assets/bnaic_1.jfif" alt="Talk at BNAIC, photo 1">
+    </div>
+    <div class="slide">
+      <img class="slide-bg" src="../assets/bnaic_2.jfif" alt="">
+      <img class="slide-fg" src="../assets/bnaic_2.jfif" alt="Talk at BNAIC, photo 2">
+    </div>
+    <div class="slide">
+      <img class="slide-bg" src="../assets/bnaic_3.jfif" alt="">
+      <img class="slide-fg" src="../assets/bnaic_3.jfif" alt="Talk at BNAIC, photo 3">
+    </div>
+    <div class="slide">
+      <img class="slide-bg" src="../assets/bnaic_4.webp" alt="">
+      <img class="slide-fg" src="../assets/bnaic_4.webp" alt="Talk at BNAIC, photo 4">
+    </div>
+  </div>
+  <div class="slideshow-dots"></div>
+</div>
+
+<script>
+(function () {
+  const slideshow = document.querySelector('.slideshow');
+  const slides = slideshow.querySelectorAll('.slideshow-track .slide');
+  const dotsWrap = slideshow.querySelector('.slideshow-dots');
+  let current = 0;
+  const intervalMs = 4000;
+
+  slides.forEach((_, i) => {
+    const dot = document.createElement('button');
+    dot.setAttribute('aria-label', `Go to photo ${i + 1}`);
+    if (i === 0) dot.classList.add('active');
+    dot.addEventListener('click', () => goTo(i));
+    dotsWrap.appendChild(dot);
+  });
+  const dots = dotsWrap.querySelectorAll('button');
+
+  function goTo(index) {
+    slides[current].classList.remove('active');
+    dots[current].classList.remove('active');
+    current = index;
+    slides[current].classList.add('active');
+    dots[current].classList.add('active');
+  }
+
+  let timer = setInterval(() => goTo((current + 1) % slides.length), intervalMs);
+
+  slideshow.addEventListener('mouseenter', () => clearInterval(timer));
+  slideshow.addEventListener('mouseleave', () => {
+    timer = setInterval(() => goTo((current + 1) % slides.length), intervalMs);
+  });
+})();
+</script>
+
+<div class="layout">
+
+  <aside class="sidebar">
+    <nav class="primary-nav">
+      <ul>
+        <li><a href="../index.html">Home</a></li>        
+        <li><a href="../research.html">Research</a></li>
+        <li><a href="../projects.html">Projects</a></li>
+        <li><a href="../speaking.html">Speaking</a></li>
+        <li><a href="../podcast.html">Podcast</a></li>
+        <li><a href="../blog.html">Blog</a></li>
+      </ul>
+    </nav>
+  </aside>
+
+  <main>
+    <p class="bio">
+      <span class="section-head-accent">Privacy-Aware Traffic Re-Identification with Interpretable Sparse Autoencoders</span>
+      This article is a result of my Bachelor thesis internship at <a href="https://www.technolution.com/" target="_blank" rel="noopener", style="color: var(--accent);">Technolution</a>, a tech innovation company in Gouda, The Netherlands. Here I worked on their <a href="https://www.technolution.com/move/flowcube/?_gl=1*10gqnc1*_up*MQ..*_ga*MTczMjc3OTY0My4xNzgzMjcxMjI3*_ga_F44CXK0GWJ*czE3ODMyNzEyMjQkbzEkZzEkdDE3ODMyNzEyMzkkajQ1JGwwJGgw" target="_blank" rel="noopener", style="color: var(--accent);">FlowCube</a>, a camera sensor trained to detect and follow traffic. My work aimed to increase transparency of the Computer Vision models inside the FlowCube. I applied state of the art mechanistic interpretability research to locate and remove potentially unwanted 'features' from the model. I published an article about this in the Benelux AI Conference (BNAIC), Nov 2025, in Namur, Belgium.
+      
+      <br><br>You can find the Article <a href="https://openreview.net/forum?id=GVlD0M7o5a" target="_blank" rel="noopener", style="color: var(--accent);">here</a>.
+    </p>
+
+    <section aria-labelledby="highlights-heading">
+      <div class="section-head">
+        <h2 id="highlights-heading">Abstract</h2>
+      </div>
+      Artificial Intelligence (AI) systems have become increasingly powerful tools used by businesses and governments to increase productivity, earnings, efficiency, and more. With this significant power comes the responsibility of balancing innovation with ethical considerations. We aim to increase transparency and trust in Computer Vision embedding models by suppressing unwanted identifiable features from a model trained on re-identification of traffic participants. This is achieved by using Sparse Autoencoders as a dictionary learning technique to extract highly interpretable features from our model. Unwanted identifiable features are suppressed and we analyse the effects on performance. Using this technique, we demonstrate that it is possible to create a transparent and highly interpretable model with a limited reduction in performance (a decrease from 0.98 mAP@0.6 to 0.90 mAP@0.6).
+    </section>
+
+    <section aria-labelledby="Links">
+      <div class="section-head">
+        <h2 id="Links">Useful links</h2>
+      </div>
+        <ul>
+        <div class="link-list">
+          <li><a href="https://bnaic2025.unamur.be/" target="_blank" rel="noopener"><span class="label">Site</span>BNAIC 2025<span class="arrow">→</span></a></li>
+          <li><a href="https://www.linkedin.com/feed/update/urn:li:activity:7399403651254923264/" target="_blank" rel="noopener"><span class="label">LinkedIn</span>Announcement post<span class="arrow">→</span></a></li>
+          <li><a href="https://openreview.net/forum?id=GVlD0M7o5a" target="_blank" rel="noopener"><span class="label">Paper</span>Open Review<span class="arrow">→</span></a></li>
+          <li><a href="../assets/Privacy-Aware Traffic Re-Identification with Interpretable Sparse Autoencoders -- presentation BNAIC.pptx" download="Privacy-Aware Traffic Re-Identification with Interpretable Sparse Autoencoders -- presentation BNAIC.pptx" target="_blank" rel="noopener"><span class="label">Presentation</span>Download here<span class="arrow">→</span></a></li>
+        </ul>
+      </div>
+    </section>
+  </main>
+
+</div>
+
+<footer class="site-footer">
+  <div class="footer-grid">
+    <div>
+      <h3>Get in touch</h3>
+      <p class="disclaimer">
+        I am happy to hear about speaking opportunities, research collaborations,
+        and interesting problems in applied AI. I can't always reply to general
+        outreach or sales pitches, but I do read everything.
+      </p>
+    </div>
+    <ul class="contact-list">
+      <li><a href="mailto:joris_heemskerk@outlook.com"><span class="label">Email</span>joris_heemskerk@outlook.com<span class="arrow"> →</span></a></li>
+      <li><a href="https://www.linkedin.com/in/joris-heemskerk/" target="_blank" rel="noopener"><span class="label">LinkedIn</span>joris-heemskerk<span class="arrow">→</span></a></li>
+      <li><span class="static"><span class="label">Location</span>Utrecht, The Netherlands</span></li>
+    </ul>
+  </div>
+  <div class="copyright">© 2026 Joris Heemskerk</div>
+  <div class="thanks">Made possible by my PR manager <a href="https://www.linkedin.com/in/jorielle-jucom-7b7b961a0/"><i>Jorielle Jucom</i>.</li></div>
+</footer>
+
+
+</body>
+</html>
