@@ -136,6 +136,7 @@
   </main>
 
 </div>
+
 <footer class="site-footer">
   <div class="footer-grid">
     <div>
@@ -147,14 +148,41 @@
       </p>
     </div>
     <ul class="contact-list">
-      <li><a href="mailto:joris_heemskerk@outlook.com"><span class="label">Email</span>joris_heemskerk@outlook.com<span class="arrow"> →</span></a></li>
+      <li id="email-item">
+        <a href="#" id="reveal-email-link" onclick="showEmailCaptcha(event)">
+          <span class="label">Email</span>Click to reveal<span class="arrow"> →</span>
+        </a>
+        <div id="email-captcha" style="display:none; margin-top:8px;">
+          <div class="g-recaptcha"
+               data-sitekey="6LclKUYtAAAAAMdsVk6j55ilZCLMMZoDp-A-PyVk"
+               data-callback="onEmailCaptchaSuccess">
+          </div>
+        </div>
+      </li>
       <li><a href="https://www.linkedin.com/in/joris-heemskerk/" target="_blank" rel="noopener"><span class="label">LinkedIn</span>joris-heemskerk<span class="arrow">→</span></a></li>
       <li><span class="static"><span class="label">Location</span>Utrecht, The Netherlands</span></li>
     </ul>
   </div>
   <div class="copyright">© 2026 Joris Heemskerk</div>
-  <div class="thanks">Made possible by my PR manager <a href="https://www.linkedin.com/in/jorielle-jucom-7b7b961a0/"><i>Jorielle Jucom</i>.</li></div>
+  <div class="thanks">Made possible by my PR manager <a href="https://www.linkedin.com/in/jorielle-jucom-7b7b961a0/"><i>Jorielle Jucom</i>.</a></div>
 </footer>
+
+<script>
+  function showEmailCaptcha(e) {
+    e.preventDefault();
+    document.getElementById('reveal-email-link').style.display = 'none';
+    document.getElementById('email-captcha').style.display = 'block';
+  }
+
+  function onEmailCaptchaSuccess() {
+    var email = "joris_heemskerk@outlook.com";
+    var li = document.getElementById('email-item');
+    li.innerHTML =
+      '<a href="mailto:' + email + '">' +
+      '<span class="label">Email</span>' + email +
+      '<span class="arrow"> →</span></a>';
+  }
+</script>
 
 </body>
 </html>
