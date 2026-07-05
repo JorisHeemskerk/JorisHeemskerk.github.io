@@ -1,0 +1,37 @@
+<footer class="site-footer">
+  <div class="footer-grid">
+    <div>
+      <h3>Get in touch</h3>
+      <p class="disclaimer">
+        I am happy to hear about speaking opportunities, research collaborations,
+        and interesting problems in applied AI. I can't always reply to general
+        outreach or sales pitches, but I do read everything.
+      </p>
+    </div>
+    <ul class="contact-list">
+      <li>
+        <a id="email-link">
+          <span class="label">Email</span>
+          Contact me
+          <span class="arrow"> →</span>
+        </a>
+      </li>
+
+      <script>
+        const user = "joris_heemskerk";
+        const domain = "outlook.com";
+
+        const email = `${user}@${domain}`;
+
+        const link = document.getElementById("email-link");
+        link.href = `mailto:${email}`;
+        // link.append(` (${email})`);
+      </script>
+
+      <li><a href="https://www.linkedin.com/in/joris-heemskerk/" target="_blank" rel="noopener"><span class="label">LinkedIn</span>joris-heemskerk<span class="arrow">→</span></a></li>
+      <li><span class="static"><span class="label">Location</span>Utrecht, The Netherlands</span></li>
+    </ul>
+  </div>
+  <div class="copyright">© 2026 Joris Heemskerk</div>
+  <div class="thanks">Made possible by my PR manager <a href="https://www.linkedin.com/in/jorielle-jucom-7b7b961a0/"><i>Jorielle Jucom</i>.</li></div>
+</footer>
