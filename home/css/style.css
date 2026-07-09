@@ -518,6 +518,48 @@ section { margin-bottom: 64px; }
   color: var(--ink-faint);
 }
 
+.lightbox {
+    position: fixed;
+    inset: 0;
+    background: rgba(0,0,0,0.92);
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    opacity: 0;
+    visibility: hidden;
+    transition: opacity 0.25s ease;
+    z-index: 9999;
+}
+
+.lightbox.active {
+    opacity: 1;
+    visibility: visible;
+}
+
+.lightbox img {
+    max-width: 95vw;
+    max-height: 95vh;
+    object-fit: contain;
+    border-radius: 6px;
+    box-shadow: 0 0 30px rgba(0,0,0,.5);
+}
+
+.lightbox-close {
+    position: absolute;
+    top: 20px;
+    right: 35px;
+    font-size: 48px;
+    color: white;
+    cursor: pointer;
+    user-select: none;
+    line-height: 1;
+}
+
+.figure-block img,
+.slide-fg {
+    cursor: zoom-in;
+}
+
 /* ---------- RESPONSIVE ---------- */
 
 @media (max-width: 860px) {
