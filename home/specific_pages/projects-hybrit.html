@@ -22,6 +22,56 @@
   </div>
 </div>
 
+
+<div class="slideshow" aria-label="Photos from the Strategy Alliance talk">
+  <div class="slideshow-track">
+    <div class="slide active">
+      <img class="slide-bg" src="../assets/hybrit_talk_collage_1.jpg" alt="">
+      <img class="slide-fg" src="../assets/hybrit_talk_collage_1.jpg" alt="Talk at Strategy Alliance, photo 1">
+    </div>
+    <div class="slide">
+      <img class="slide-bg" src="../assets/hybrit_talk_collage_2.jpg" alt="">
+      <img class="slide-fg" src="../assets/hybrit_talk_collage_2.jpg" alt="Talk at Strategy Alliance, photo 2">
+    </div>
+  </div>
+  <div class="slideshow-dots"></div>
+</div>
+
+<script>
+(function () {
+  const slideshow = document.querySelector('.slideshow');
+  const slides = slideshow.querySelectorAll('.slideshow-track .slide');
+  const dotsWrap = slideshow.querySelector('.slideshow-dots');
+  let current = 0;
+  const intervalMs = 4000;
+
+  slides.forEach((_, i) => {
+    const dot = document.createElement('button');
+    dot.setAttribute('aria-label', `Go to photo ${i + 1}`);
+    if (i === 0) dot.classList.add('active');
+    dot.addEventListener('click', () => goTo(i));
+    dotsWrap.appendChild(dot);
+  });
+  const dots = dotsWrap.querySelectorAll('button');
+
+  function goTo(index) {
+    slides[current].classList.remove('active');
+    dots[current].classList.remove('active');
+    current = index;
+    slides[current].classList.add('active');
+    dots[current].classList.add('active');
+  }
+
+  let timer = setInterval(() => goTo((current + 1) % slides.length), intervalMs);
+
+  slideshow.addEventListener('mouseenter', () => clearInterval(timer));
+  slideshow.addEventListener('mouseleave', () => {
+    timer = setInterval(() => goTo((current + 1) % slides.length), intervalMs);
+  });
+})();
+</script>
+
+
 <div class="layout">
 
   <aside class="sidebar">
@@ -42,29 +92,58 @@
       <span class="section-head-accent">Responsible use of AI</span>
       I was invited by HybrIT, an IT consultancy company, to come give a talk about the responsible use of AI. In my talk, I touched on 5 important areas of responsible AI: <i>Privacy & Data Protection</i>, <i>Accountability & Governance</i>,  <i>Fairness</i>, <i>Transparency & Explainability</i>, and <i>Human Oversight</i>. For each area, I touched on what to consider when developing and deploying AI solutions.
 
-      <br><br>Near the end of the session, we brainstormed about specific Do's and Don'ts when deploying AI solutions. We also discussed a concrete implementation and discussed how we can convey responsibility related risks and challenges to management. The results of these interactive parts of the session are expanded upon below.
+      <br><br>Near the end of the session, we brainstormed about specific do's and don'ts when deploying AI solutions. We also discussed a concrete implementation and discussed how we can convey responsibility-related risks and challenges to management. The results of these interactive parts of the session are expanded upon below.
 
-      <br><br>If you attended the talk, thank you for your participation. I hope you learned something. The slides can be downloaded below.
+      <br><br>If you attended the talk, thank you for your participation. I hope you learned something. The slides can be downloaded <a href="../assets/HybrIT_Responsible_AI.pptx" download="HybrIT_Responsible_AI.pptx" target="_blank" rel="noopener", style="color: var(--accent);">here</a>. A White paper on this same topic that highlights the 5 discussed areas of responsible AI can be found <a href="../assets/White Paper Verantwoorde inzet AI.pdf" download="White Paper Verantwoorde inzet AI.pdf" target="_blank" rel="noopener", style="color: var(--accent);">here</a>.
     </p>
 
     <section aria-labelledby="highlights-heading">
       <div class="section-head">
         <h2 id="highlights-heading">Brainstorming results</h2>
       </div>
-
-      <div class="highlights-grid">
-        <p style="color: rgb(157, 75, 75);">This section is currently under construction, as the talk has either not yet taken place or I have not yet had time to compile the results.</p>
-      </div>
+      After discussing the 5 areas of responsible AI, the group was asked to provide a list of do's and don'ts based on their experience with using AI systems and developing AI solutions. This list can be found below. Interestingly, the focus of the group seemed to largely surround <i>Privacy & Data Protection</i>. This may indicate that these are the sort of things most familiar to software developers, when discussing responsible AI. The participants also seemed to care about keeping control over the code they write. They did not fully trust AI systems to be as accurate or more accurate than themselves. This is reflected by the first do and the second don't. We also observe the human in the loop aspect to be highly relevant, though it should be noted that this was the most recently discussed point before brainstorming, potentially leading to a recency bias.
     </section>
+
+    <figure class="figure-block">
+        <img src="../assets/HybrITDosDontsLeaderboard.png" alt="Chart showing the results of the brainstorming section of the presentation">
+        <figcaption>Participant suggestions for do's and don'ts for responsible AI use (translated by hand), ranked by likes (alphabetical otherwise).</figcaption>
+      </figure>
 
     <section aria-labelledby="highlights-heading">
       <div class="section-head">
         <h2 id="highlights-heading">Application results</h2>
       </div>
 
-      <div class="highlights-grid">
-        <p style="color: rgb(157, 75, 75);">This section is currently under construction, as the talk has either not yet taken place or I have not yet had time to compile the results.</p>
+      The participants were asked to consider the following scenario:
+
+      <p style="color: var(--ink-muted); text-align: center; vertical-align: middle;"><i>The HR department of your company wants to hire new employees. When a lot of people apply, this is a time-consuming process. They want to use an AI system to do a preliminary screening of the CVs, to narrow down the list of participants. This would save them a lot of time.<br><b>You are tasked to develop this AI solution.</b></i></p>
+
+      Participants were first asked to divide 100 points across the 5 discussed areas of responsible AI. The results can be seen in the figure below. They seemed to place relatively more importance on <i>Privacy & Data Protection</i> and <i>Fairness</i>. When asked, participants mentioned the processing of personal data to be quite important. They also talked about potential discrimination on the basis of prior hiring behaviour. We discussed an example in which we trained an AI on our historic data and use it to try to hire a frontend developer. In the past we have much more frequently hired backend and fullstack developers. The system could therefore recommend a fullstack developer over a frontend specialist, due to this biased data. 
+      <br><br>There was also a small discussion about the difference between <i>Privacy & Data Protection</i> and <i>Fairness</i> with respect to handling sensitive personal data. We unpacked this and found that the cyber security of this personal data would fall under <i>Privacy & Data Protection</i>, while the use of this data with respect to treating applicants differently would fall under <i>Fairness</i>.
+      <br><br>What is perhaps interesting is that <i>Accountability & Governance</i> appears all the way at the bottom. People considered this the least important of the five areas. When discussed, we discovered that the participants were not aware of this application being a potential forbidden or high-risk application with respect to the EU AI Act. Such a system would not be allowed to make final hiring decisions (without human oversight). The participants were not aware of this potential risk.
+
+      <figure class="figure-block">
+        <img src="../assets/EthicsAllocationGraph.png" alt="Chart showing relevance ratings across the five responsible AI areas">
+        <figcaption>How participants divided 100 points across the 5 areas. Ranked in order of mean score.</figcaption>
+      </figure>
+
+      <h4 style="color: var(--accent);"><i>What else should you keep in mind?</i></h4>
+      We then discussed some other things to keep in mind when developing such a system. This was asked in the form of an open question. One of the participants wrote down <i>"Who will be responsible for checking if the system works correctly"</i>. This resonated with the group. The human oversight to verify the system's decisions is very important. Furthermore, if it takes more time to manually check the AI decisions, perhaps you would be better off simply filtering through the CVs manually. One participant mentioned that even taking the time to manually anonymise the CVs would potentially take more time than filtering them by hand. This raises the point of AI not always being more efficient or practical as compared to a different approach.
+      <br><br>A different participant mentioned cost. Cost is important for multiple reasons. For example, there are the costs of developing, building, and maintaining such a system. Would the costs of this process outweigh the potential benefits? Similarly, if we have to take the extra time to anonymise data or be compliant with the EU AI Act, it could potentially cost more than paying someone to go through the CVs by hand. 
+
+      <h4 style="color: var(--accent);"><i>How do you communicate this to your product owner?</i></h4>
+      Lastly, we discussed how one might convince their product owner to pay attention to their responsibilities regarding AI. Unfortunately, the group mentioned that simply informing them it is the most ethical thing to do will likely not yield any good results. One can dream, but most of the time the best way is likely frame the discussion in financial terms. For example: <i>"You can either spend $10,000 on me adding AI Act compliance into our solution, or we could risk a $50,000 fine for non-compliance and then still have to build it after."</i>. The point here would be to inform the product owner of the potential risks. Expressing these risks in terms of monetary value would likely be most effective.
+      <br><br>Another participant highlighted the communication barrier they often experience between developers and product owners, where both seem to have their own language. They suggested to put their concerns into their own words into an AI chatbot and have it translate their language that a product owner can more easily understand.
+
+    </section>
+    
+    <section aria-labelledby="highlights-heading">
+      <div class="section-head">
+        <h2 id="highlights-heading">Final thoughts</h2>
       </div>
+      I hope this talk was not only informative but that it also left those attending with some real tangible insights they can take with them the next time they either use AI themselves or implement it in a project. I hope everyone was able to see that using AI responsibly is not as easy as it may have previously seemed. It is a complex ethical landscape where many considerations have to be made. 
+
+      <br><br>I want to again thank everyone for attending. Below you can find some useful links to the slides, a white paper I wrote on this same topic, and some socials.
     </section>
 
     <section aria-labelledby="Links">
@@ -77,6 +156,7 @@
           <li><a href="https://www.linkedin.com/feed/update/urn:li:activity:7475450143954104320/" target="_blank" rel="noopener"><span class="label">LinkedIn</span>Announcement post<span class="arrow">→</span></a></li>
           <li><a href="https://hybrit.nl/meetup-build-with-intent/" target="_blank" rel="noopener"><span class="label">Meetup</span>Information<span class="arrow">→</span></a></li>
           <li><a href="../assets/HybrIT_Responsible_AI.pptx" download="HybrIT_Responsible_AI.pptx" target="_blank" rel="noopener"><span class="label">Slides</span>Download here<span class="arrow">→</span></a></li>
+          <li><a href="../assets/White Paper Verantwoorde inzet AI.pdf" download="White Paper Verantwoorde inzet AI.pdf" target="_blank" rel="noopener"><span class="label">White paper</span>Download here<span class="arrow">→</span></a></li>
         </ul>
       </div>
     </section>
