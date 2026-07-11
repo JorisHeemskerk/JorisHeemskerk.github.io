@@ -1,0 +1,97 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Joris Heemskerk</title>
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Fraunces:opsz,wght@9..144,400;9..144,500;9..144,600&family=Inter:wght@400;500;600&family=IBM+Plex+Mono:wght@400;500&display=swap" rel="stylesheet">
+<link rel="stylesheet" href="../css/style.css">
+ 
+</head>
+
+<body>
+
+<div id="lightbox" class="lightbox">
+    <span class="lightbox-close">&times;</span>
+    <img id="lightbox-img" src="" alt="">
+</div>
+
+<div class="topbar">
+  <!-- <div class="avatar">JH</div>
+  Swap the line above for: -->
+  <div class="avatar"><img src="../assets/avatar.png" alt="Joris Heemskerk" style="width:100%;height:100%;object-fit:cover;"></div>
+  <div class="topbar-text">
+    <h1>Joris Heemskerk</h1>
+    <div class="topbar-roles">AI Master's Student<span class="dot">·</span>AI Engineer<span class="dot">·</span>AI Researcher<span class="dot">·</span>Occasional Speaker</div>
+  </div>
+</div>
+
+<div class="layout">
+
+  <aside class="sidebar">
+    <nav class="primary-nav">
+      <ul>
+        <li><a href="../index.html">Home</a></li>        
+        <li><a href="../research.html">Research</a></li>
+        <li><a href="../projects.html">Projects</a></li>
+        <li><a href="../speaking.html">Speaking</a></li>
+        <li><a href="../podcast.html">Podcast</a></li>
+        <li><a href="../blog.html">Blog</a></li>
+      </ul>
+    </nav>
+  </aside>
+
+  <main>
+    <p class="bio">
+      <span class="section-head-accent">Comparing classical models on hotel review authenticity classification</span>
+      In October 2025 me and my project group for the Master's course Data Mining applied classical models on a dataset full of hotel reviews in the aim to classify their authenticity. While this approach was not novel, it was a fun way to get more familiar with the non-deep learning AI models. The article can be downloaded <a href="../assets/DM-article.pdf" download="DL Hotel Review Authenticity paper.pdf" target="_blank" rel="noopener", style="color: var(--accent);">here</a>.
+    </p>
+
+    <section aria-labelledby="highlights-heading">
+      <div class="section-head">
+        <h2 id="highlights-heading">Abstract</h2>
+      </div>
+      In recent years, the subfield of supervised learning within machine learning (ML) has expanded significantly. With this expeditious advancement, so has the set of classification algorithms developed by the ML community. This development has replaced the question of whether to utilise machine learning algorithms, with the question of which machine learning algorithms to utilise. Therefore, this study compares five supervised learning algorithms by training the models on a dataset containing 400 true and 400 false negative hotel reviews, with the task being the classification of the authenticity of a given review. The models that fall within the scope of this paper are: Multinomial Naive Bayes (MNB), Logistic Regression (LR), a singular Classification Tree (CT), Random Forest (RF) and Gradient Boosting (GB). The models get compared by answering the following four questions. <i>(1) How does the performance of the generative linear model (Multinomial Naive Bayes) compare to the discriminative linear model (Logistic Regression)? (2) Are Random Forests and Gradient Boosting able to improve on the performance of the linear classifiers? (3) Does performance improve by adding bigram features, instead of using just unigrams? (4) What are the five most important terms (features) pointing towards a fake review, and what are the five most important terms pointing towards a genuine review?</i> From our findings we can conclude that the MNB consistently outperforms the LR model. Random forest and Gradient Boosting do not outperform the linear models, despite their more complex nature. Additionally, when adding bigram features, provided improvements across all metrics. The most important features were also found and reported upon in the conclusion.
+
+    </section>
+
+    <section aria-labelledby="Links">
+      <div class="section-head">
+        <h2 id="Links">Useful links</h2>
+      </div>
+        <ul>
+        <div class="link-list">
+          <li><a href="../assets/DM-article.pdf" download="DL Hotel Review Authenticity paper.pdf" target="_blank" rel="noopener"><span class="label">Paper</span>Download here<span class="arrow">→</span></a></li>
+        </ul>
+      </div>
+    </section>
+  </main>
+
+</div>
+
+<footer class="site-footer">
+  <div class="footer-grid">
+    <div>
+      <h3>Get in touch</h3>
+      <p class="disclaimer">
+        I am happy to hear about speaking opportunities, research collaborations,
+        and interesting problems in applied AI. I can't always reply to general
+        outreach or sales pitches, but I do read everything.
+      </p>
+    </div>
+    <ul class="contact-list">
+      <li><a href="mailto:joris_heemskerk@outlook.com"><span class="label">Email</span>joris_heemskerk@outlook.com<span class="arrow"> →</span></a></li>
+      <li><a href="https://www.linkedin.com/in/joris-heemskerk/" target="_blank" rel="noopener"><span class="label">LinkedIn</span>joris-heemskerk<span class="arrow">→</span></a></li>
+      <li><span class="static"><span class="label">Location</span>Utrecht, The Netherlands</span></li>
+    </ul>
+  </div>
+  <div class="copyright">© 2026 Joris Heemskerk</div>
+  <div class="thanks">Made possible by my PR manager <a href="https://www.linkedin.com/in/jorielle-jucom-7b7b961a0/"><i>Jorielle Jucom</i>.</li></div>
+</footer>
+
+<script src="../js/lightbox.js"></script>
+
+</body>
+</html>
